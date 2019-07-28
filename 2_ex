@@ -1,0 +1,90 @@
+ex workshop 3
+-------------------
+
+EX 6
+
+
+PyMOL> fetch 2JQY
+
+PyMOL> split_states 2JQY   (https://pymolwiki.org/index.php/Split_states (Links to an external site.)Links to an external site.)
+
+You will now see 10 conformers each in a separate object
+
+PyMOL> hide all
+
+PyMOL> show cartoon
+
+The differences are mainly in the loops on the surface of the barrel structure.
+
+2JQY_split_states.png
+
+You may color these differently to see the differences even better.
+
+Click all (layers) to hide them and only show object 2JQY_0001 by clicking on the object name.
+
+PYMOL> fetch 2IWW
+
+PyMOL> hide all
+
+PyMOL> show cartoon, 2IWW + 2JQY_0001
+
+PyMOL> hide cartoon, 2IWW and chain B
+
+PyMOL> align 2IWW and chain A, 2JQY_0001
+
+PyMOL> zoom
+
+2JQY_align.png
+
+Rotate the structures and take a closer look at the flexible loop which can close the channel (barrel structure).
+
+Also nice visualization in surface representation:
+
+PyMOL> show surface
+
+Color each structure  differently. Optionally also color the loop to make to difference more clear.
+
+PyMOL> color ..., 2IWW and resi 219-232
+
+File » Save Session As…
+
+PyMOL> delete 2JQY_*    (this will remove all conformers and only keep object 2JQY)
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+PyMOL> fetch 1Q55
+
+PyMOL> hide all
+
+PyMOL> show cartoon
+
+PyMOL> create calcium, 1Q55 and chain A+B and resn CA
+
+PyMOL> show spheres, calcium
+
+PyMOL> color firebrick, 1Q55 and chain A
+
+PyMOL> color skyblue, 1Q55 and chain B
+
+PyMOL> create trparm, 1Q55 and resi 2
+
+PyMOL> show sticks, trparm
+
+PyMOL> set valence, 0
+PyMOL> show surface, 1Q55 and chain A
+
+The N-terminal adhesion arm of one chain is inserted into the other chain (termed strand swapping) using the Trp (W2) as anchor residue into a hydrophobic pocket.The surface representation is somehow weird because chain A is "opened" by chain B. This will not be the case if you put the chains in different objects.
+
+PyMOL> create chaina, 1Q55 and chain A
+
+PyMOL> create chainb, 1Q55 and chain B
+
+Click on the object 1Q55 to hide.
+
+PyMOL> set transparency = 0.2 
+
+
+-------------------------------------------------------------
+stippellijntjes weg: 
+setting --> cartoon --> gap cutoff --> 0
+
